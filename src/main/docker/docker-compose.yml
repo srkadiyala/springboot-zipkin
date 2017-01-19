@@ -1,0 +1,14 @@
+demo-mysql:
+  image: mysql:latest
+  environment:
+    - MYSQL_ROOT_PASSWORD=secret123
+    - MYSQL_DATABASE=demo
+    - MYSQL_USER=dbuser
+    - MYSQL_PASSWORD=secret
+
+deloittelabs-demo:
+  image: srkadiyala/microservice-docker
+  links:
+    - demo-mysql:mysql
+  ports:
+    - 9082:9082
